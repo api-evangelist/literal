@@ -1,0 +1,174 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "lit": "https://literal.club/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Book": "lit:Book",
+    "Profile": "lit:Profile",
+    "Review": "lit:Review",
+    "ReadingState": "lit:ReadingState",
+    "ReadingProgress": "lit:ReadingProgress",
+    "Shelf": "lit:Shelf",
+    "Moment": "lit:Moment",
+    "Club": "lit:Club",
+    "Goal": "lit:Goal",
+    "Author": "lit:Author",
+    "Edition": "lit:Edition",
+
+    "id": {
+      "@id": "lit:id",
+      "@type": "xsd:string"
+    },
+    "slug": {
+      "@id": "lit:slug",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "lit:title",
+      "@type": "xsd:string"
+    },
+    "subtitle": {
+      "@id": "lit:subtitle",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "lit:description",
+      "@type": "xsd:string"
+    },
+    "cover": {
+      "@id": "lit:cover",
+      "@type": "@id"
+    },
+    "isbn10": {
+      "@id": "lit:isbn10",
+      "@type": "xsd:string"
+    },
+    "isbn13": {
+      "@id": "lit:isbn13",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "lit:language",
+      "@type": "xsd:string"
+    },
+    "pageCount": {
+      "@id": "lit:pageCount",
+      "@type": "xsd:integer"
+    },
+    "publishedDate": {
+      "@id": "lit:publishedDate",
+      "@type": "xsd:string"
+    },
+    "publisher": {
+      "@id": "lit:publisher",
+      "@type": "xsd:string"
+    },
+    "physicalFormat": {
+      "@id": "lit:physicalFormat",
+      "@type": "xsd:string"
+    },
+    "workId": {
+      "@id": "lit:workId",
+      "@type": "xsd:string"
+    },
+    "authors": {
+      "@id": "lit:authors",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "handle": {
+      "@id": "lit:handle",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "lit:name",
+      "@type": "xsd:string"
+    },
+    "bio": {
+      "@id": "lit:bio",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "lit:image",
+      "@type": "@id"
+    },
+    "followerCount": {
+      "@id": "lit:followerCount",
+      "@type": "xsd:integer"
+    },
+    "followingCount": {
+      "@id": "lit:followingCount",
+      "@type": "xsd:integer"
+    },
+    "rating": {
+      "@id": "lit:rating",
+      "@type": "xsd:decimal"
+    },
+    "text": {
+      "@id": "lit:text",
+      "@type": "xsd:string"
+    },
+    "spoiler": {
+      "@id": "lit:spoiler",
+      "@type": "xsd:boolean"
+    },
+    "tags": {
+      "@id": "lit:tags",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "lit:status",
+      "@type": "xsd:string"
+    },
+    "bookId": {
+      "@id": "lit:bookId",
+      "@type": "xsd:string"
+    },
+    "profileId": {
+      "@id": "lit:profileId",
+      "@type": "xsd:string"
+    },
+    "quote": {
+      "@id": "lit:quote",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "lit:note",
+      "@type": "xsd:string"
+    },
+    "where": {
+      "@id": "lit:where",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "lit:createdAt",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "lit:updatedAt",
+      "@type": "xsd:dateTime"
+    },
+    "books": {
+      "@id": "lit:books",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "members": {
+      "@id": "lit:members",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "progress": {
+      "@id": "lit:progress",
+      "@type": "xsd:decimal"
+    },
+    "currentPage": {
+      "@id": "lit:currentPage",
+      "@type": "xsd:integer"
+    }
+  }
+}

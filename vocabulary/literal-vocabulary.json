@@ -1,0 +1,131 @@
+{
+  "vocabulary": {
+    "title": "Literal Club GraphQL API Vocabulary",
+    "description": "Controlled vocabulary and term definitions for the Literal Club GraphQL API, covering books, reading states, shelves, reviews, highlights, clubs, and user profiles.",
+    "version": "1.0.0",
+    "source": "https://literal.club/developers",
+    "terms": [
+      {
+        "term": "Book",
+        "label": "Book",
+        "definition": "A published work tracked on Literal Club. Contains bibliographic metadata including title, subtitle, description, cover image, ISBN-10, ISBN-13, language, page count, published date, publisher, physical format, and associated authors.",
+        "fields": ["id", "slug", "title", "subtitle", "description", "cover", "isbn10", "isbn13", "language", "pageCount", "publishedDate", "publisher", "physicalFormat", "authors", "workId"]
+      },
+      {
+        "term": "Profile",
+        "label": "User Profile",
+        "definition": "A Literal Club user account with public identity information. Profiles are identified by a unique handle and contain display name, bio, profile image, and social graph counts.",
+        "fields": ["id", "handle", "name", "bio", "image", "followerCount", "followingCount"]
+      },
+      {
+        "term": "ReadingState",
+        "label": "Reading State",
+        "definition": "Records a user's current relationship with a book. Possible status values are WANTS_TO_READ, IS_READING, FINISHED, DROPPED, and NONE.",
+        "fields": ["id", "status", "bookId", "profileId", "createdAt"],
+        "values": ["WANTS_TO_READ", "IS_READING", "FINISHED", "DROPPED", "NONE"]
+      },
+      {
+        "term": "ReadingProgress",
+        "label": "Reading Progress",
+        "definition": "Tracks incremental progress through a book for a user currently in the IS_READING state. Progress can be expressed as a page number or percentage.",
+        "fields": ["id", "bookId", "profileId", "progress", "currentPage", "createdAt"]
+      },
+      {
+        "term": "Review",
+        "label": "Book Review",
+        "definition": "A user's written assessment of a book. Reviews include an optional star rating on a 0.0–5.0 scale, free-text content, a spoiler flag, and categorization tags.",
+        "fields": ["id", "rating", "text", "spoiler", "tags", "createdAt"],
+        "ratingRange": "0.0 to 5.0"
+      },
+      {
+        "term": "Moment",
+        "label": "Highlight / Moment",
+        "definition": "A captured passage or thought associated with a specific point in a book, sometimes called a highlight. Contains a quote from the text, an optional personal note, a location reference (where), and a spoiler flag.",
+        "fields": ["id", "quote", "note", "where", "spoiler", "bookId", "profileId", "createdAt"]
+      },
+      {
+        "term": "Shelf",
+        "label": "Shelf",
+        "definition": "A user-curated list of books organized around a theme or topic. Shelves are identified by a slug and can be public or private. Books can be added to or removed from shelves.",
+        "fields": ["id", "slug", "title", "description", "profileId", "books"]
+      },
+      {
+        "term": "Club",
+        "label": "Reading Club",
+        "definition": "A community space on Literal Club where members gather to read and discuss books together. Clubs are identified by a handle and can be featured on the platform.",
+        "fields": ["id", "handle", "name", "description", "image", "members"]
+      },
+      {
+        "term": "Goal",
+        "label": "Reading Goal",
+        "definition": "A personal reading target set by a user, typically specifying a number of books to read within a time period such as a year.",
+        "fields": ["id", "slug", "profileId", "createdAt"]
+      },
+      {
+        "term": "Author",
+        "label": "Author",
+        "definition": "A person who has written one or more books tracked on Literal Club. Authors are identified by a slug and can be used to discover all books associated with them.",
+        "fields": ["id", "slug", "name", "bio", "image"]
+      },
+      {
+        "term": "Edition",
+        "label": "Book Edition",
+        "definition": "A specific physical or digital release of a book, potentially differing in language, publisher, page count, or ISBN from other editions of the same work.",
+        "fields": ["id", "isbn10", "isbn13", "language", "pageCount", "publishedDate", "publisher", "physicalFormat"]
+      },
+      {
+        "term": "login",
+        "label": "Login Mutation",
+        "definition": "GraphQL mutation that authenticates a user with email and password credentials and returns a JWT bearer token used to authorize subsequent API calls.",
+        "type": "mutation",
+        "returns": "token (JWT string)"
+      },
+      {
+        "term": "register",
+        "label": "Register Mutation",
+        "definition": "GraphQL mutation that creates a new Literal Club user account. Requires email, password, display name, unique handle, and at least one preferred reading language.",
+        "type": "mutation"
+      },
+      {
+        "term": "searchBookV2",
+        "label": "Book Search",
+        "definition": "GraphQL query that searches for books by title or author name and returns a list of matching Book objects.",
+        "type": "query"
+      },
+      {
+        "term": "myBooks",
+        "label": "My Books Query",
+        "definition": "Authenticated GraphQL query returning all books associated with the current user's reading states across all statuses.",
+        "type": "query",
+        "requiresAuth": true
+      },
+      {
+        "term": "myBooksByReadingState",
+        "label": "My Books by Reading State",
+        "definition": "Authenticated GraphQL query returning books filtered to a specific reading status (WANTS_TO_READ, IS_READING, FINISHED, DROPPED).",
+        "type": "query",
+        "requiresAuth": true
+      },
+      {
+        "term": "updateReadingState",
+        "label": "Update Reading State Mutation",
+        "definition": "Authenticated GraphQL mutation that sets or changes a user's reading status for a specific book.",
+        "type": "mutation",
+        "requiresAuth": true
+      },
+      {
+        "term": "aggregatedFeed",
+        "label": "Activity Feed",
+        "definition": "Authenticated GraphQL query that returns a social activity feed showing reading updates, reviews, and highlights from profiles the current user follows.",
+        "type": "query",
+        "requiresAuth": true
+      },
+      {
+        "term": "token",
+        "label": "JWT Bearer Token",
+        "definition": "JSON Web Token returned by the login mutation and used as a Bearer token in the Authorization HTTP header to authenticate write operations and access personal data through the Literal Club GraphQL API.",
+        "format": "Authorization: Bearer <token>"
+      }
+    ]
+  }
+}
