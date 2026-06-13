@@ -1,0 +1,11 @@
+finops:
+  - name: Literal Club API Pricing
+    description: The Literal Club GraphQL API is provided free of charge to all registered users. No paid API tiers, usage-based billing, or API monetization pricing is publicly documented. The API is an open community offering intended to allow developers to build integrations with their personal Literal reading data.
+    model: free
+    pricingURL: https://literal.club/developers
+    notes:
+      - No documented paid tiers or API subscription plans
+      - Access requires a Literal Club account (free registration)
+      - JWT tokens are obtained via the login mutation and last 6 months
+      - For bulk access or commercial use cases, contact support@literal.club
+      - No SLA or uptime guarantees are publicly documented

@@ -1,0 +1,32 @@
+plans:
+  - name: Free
+    description: Literal Club API access is free and open to all registered users. There are no paid API tiers documented. Access is granted via a JWT token obtained through the login mutation, valid for 6 months. Developers are asked to be respectful with request volume and to contact support for bulk data access needs.
+    url: https://literal.club/developers
+    rateLimits:
+      - name: General Request Volume
+        description: No specific rate limits documented publicly. Developers are asked to be respectful with request volume and to use field selection for efficiency.
+        unit: requests
+        limit: unspecified
+    features:
+      - name: Book Queries
+        description: Access to bookBySlug, bookById, bookByIsbn, searchBookV2, and other book lookup operations
+      - name: Reading State Queries
+        description: Access to myReadingStates, myBooksByReadingState, booksByReadingStateAndProfile
+      - name: Shelf Queries
+        description: Access to getShelfBySlug, getShelvesByProfileId, booksByShelf
+      - name: Review Queries
+        description: Access to review and getUserReviews
+      - name: Highlight Queries
+        description: Access to momentById, myMoments
+      - name: Profile Queries
+        description: Access to me, profileByHandle, profileById, searchProfiles
+      - name: Author Queries
+        description: Access to authorBySlug, booksByAuthor
+      - name: Club Queries
+        description: Access to clubByHandle, getFeaturedClubs, getClubsByProfileId, searchClubs
+      - name: Goal Queries
+        description: Access to goalBySlug
+      - name: Mutations
+        description: Create/update books, reviews, highlights (moments), shelves, profiles, goals, reading states, reading progress, comments, follows; delete reviews and highlights
+      - name: Authentication
+        description: JWT bearer token via login or register mutation; tokens valid for 6 months

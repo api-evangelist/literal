@@ -1,0 +1,12 @@
+rateLimits:
+  - name: General API Rate Limit
+    description: Literal Club does not publicly document specific numeric rate limits. The documentation asks developers to be respectful with request volume. For bulk data access needs, developers are instructed to contact support@literal.club directly.
+    type: soft
+    policy: Be respectful with request volume. Cache responses when possible. Use GraphQL field selection to request only necessary data. Contact support for bulk data access requirements.
+    contactForBulk: support@literal.club
+    notes:
+      - No hard numeric rate limits are publicly documented
+      - Tokens are valid for 6 months before requiring renewal via login mutation
+      - Caching is recommended to minimize redundant requests
+      - GraphQL field selection should be used to limit data transfer
+      - The Literal DEV club (https://literal.club/clubs/dev) is available for developer community discussion
