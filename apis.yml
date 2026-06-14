@@ -1,68 +1,73 @@
 aid: literal
 name: Literal Club
-description: Literal is a modern social reading and book tracking platform that provides a GraphQL API for managing reading lists, reviews, shelves, reading goals, highlights, and book recommendations. The API enables developers to access user libraries, reading states, book data, author information, and social reading clubs.
+description: Literal is a modern social reading and book tracking platform that provides
+  a GraphQL API for managing reading lists, reviews, shelves, reading goals, highlights,
+  and book recommendations. The API enables developers to access user libraries, reading
+  states, book data, author information, and social reading clubs.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/apis.yml
-created: "2026-06-13"
-modified: "2026-06-13"
-specificationVersion: "0.19"
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
 tags:
+- Books
+- Reading
+- Social
+- GraphQL
+- Book Tracking
+- Reading Lists
+- Shelves
+- Reviews
+- Highlights
+- Reading Goals
+- Book Clubs
+- Recommendations
+apis:
+- aid: literal:literal-graphql-api
+  name: Literal GraphQL API
+  description: GraphQL API for Literal Club that provides access to book data, reading
+    states, shelves, reviews, highlights, reading goals, clubs, and user profiles.
+    Supports both public read operations and authenticated write operations via JWT
+    bearer tokens.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://literal.club/developers
+  baseURL: https://literal.club/graphql/
+  tags:
   - Books
   - Reading
-  - Social
   - GraphQL
-  - Book Tracking
-  - Reading Lists
+  - Social
   - Shelves
   - Reviews
   - Highlights
-  - Reading Goals
-  - Book Clubs
-  - Recommendations
-
-apis:
-  - aid: literal:literal-graphql-api
-    name: Literal GraphQL API
-    description: GraphQL API for Literal Club that provides access to book data, reading states, shelves, reviews, highlights, reading goals, clubs, and user profiles. Supports both public read operations and authenticated write operations via JWT bearer tokens.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://literal.club/developers
-    baseURL: https://literal.club/graphql/
-    tags:
-      - Books
-      - Reading
-      - GraphQL
-      - Social
-      - Shelves
-      - Reviews
-      - Highlights
-    properties:
-      - type: Documentation
-        url: https://literal.club/developers
-      - type: Authentication
-        url: https://literal.club/developers
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/rate-limits/rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/finops/finops.yml
-    contact:
-      - FN: Literal Support
-        email: support@literal.club
-
+  properties:
+  - type: Documentation
+    url: https://literal.club/developers
+  - type: Authentication
+    url: https://literal.club/developers
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/finops/finops.yml
+  - url: graphql/literal-graphql.md
+    type: GraphQL
+  contact:
+  - FN: Literal Support
+    email: support@literal.club
 common:
-  - type: Sign Up
-    url: https://literal.club/
-  - type: Developer Community
-    url: https://literal.club/clubs/dev
-  - type: Support
-    url: mailto:support@literal.club
-  - type: Terms of Service
-    url: https://literal.club/pages/terms
-  - type: Privacy Policy
-    url: https://literal.club/pages/privacy
-
+- type: Sign Up
+  url: https://literal.club/
+- type: Developer Community
+  url: https://literal.club/clubs/dev
+- type: Support
+  url: mailto:support@literal.club
+- type: Terms of Service
+  url: https://literal.club/pages/terms
+- type: Privacy Policy
+  url: https://literal.club/pages/privacy
 maintainers:
-  - FN: Kin Lane
-    X-twitter: kinlane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  X-twitter: kinlane
+  email: kin@apievangelist.com

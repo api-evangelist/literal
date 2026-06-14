@@ -1,0 +1,492 @@
+"""
+Literal Club GraphQL API Schema
+Endpoint: https://literal.club/graphql/
+Documentation: https://literal.club/developers
+"""
+
+scalar DateTime
+
+enum ReadingStatus {
+  WANTS_TO_READ
+  IS_READING
+  FINISHED
+  DROPPED
+  NONE
+}
+
+enum BookSorting {
+  recency
+  title
+  author
+  readingStatus
+}
+
+enum SortDirection {
+  asc
+  desc
+}
+
+enum ProgressUnit {
+  page
+  percent
+}
+
+enum ReactionTarget {
+  Review
+  Moment
+  ClubPost
+  Comment
+  Activity
+  Goal
+}
+
+type Author {
+  id: ID!
+  name: String!
+  slug: String
+  description: String
+  image: String
+}
+
+type Book {
+  id: ID!
+  slug: String!
+  title: String!
+  subtitle: String
+  description: String
+  cover: String
+  isbn10: String
+  isbn13: String
+  language: String!
+  pageCount: Int
+  publishedDate: DateTime
+  publisher: String
+  physicalFormat: String
+  workId: String
+  authors: [Author!]!
+}
+
+type Profile {
+  id: ID!
+  handle: String!
+  name: String!
+  bio: String
+  image: String
+  followerCount: Int
+  followingCount: Int
+}
+
+type Me {
+  email: String
+  languages: [String!]
+  profile: Profile
+}
+
+type ReadingState {
+  id: ID!
+  status: ReadingStatus!
+  bookId: String!
+  profileId: String!
+  createdAt: DateTime!
+  book: Book
+}
+
+type ReadingProgress {
+  bookId: String!
+  progress: Int
+  capacity: Int
+  unit: ProgressUnit
+  completed: Boolean
+}
+
+type Review {
+  id: ID!
+  rating: Float!
+  text: String
+  spoiler: Boolean!
+  tags: [String!]!
+  createdAt: DateTime!
+  profile: Profile
+  book: Book
+}
+
+type Moment {
+  id: ID!
+  quote: String
+  note: String
+  where: String
+  spoiler: Boolean!
+  createdAt: DateTime!
+  book: Book
+  profile: Profile
+}
+
+type Shelf {
+  id: ID!
+  slug: String!
+  title: String!
+  description: String
+  books: [Book!]!
+  owner: Profile!
+}
+
+type Club {
+  id: ID!
+  handle: String!
+  name: String!
+  description: String
+  image: String
+  membershipCount: Int
+  bookCount: Int
+  languages: [String!]!
+  createdAt: DateTime
+}
+
+type Goal {
+  id: ID!
+  name: String
+  slug: String
+  target: Int
+  startDate: String
+  endDate: String
+  autoUpdate: Boolean
+  participants: [Profile]
+  createdBy: Profile
+}
+
+type GoalEnrollment {
+  id: ID!
+  goal: Goal
+}
+
+type Comment {
+  id: ID!
+  text: String
+  createdAt: DateTime
+  profile: Profile
+}
+
+type LikeResult {
+  success: Boolean
+}
+
+type AggregatedActivity {
+  id: ID!
+  verb: String
+  activity_count: Int
+  actor_count: Int
+  activities: [ActivityItem]
+}
+
+type ActivityItem {
+  id: ID!
+  verb: String
+  object: String
+  object_type: String
+  time: DateTime
+}
+
+type BookReviewActivity {
+  id: ID!
+  review: Review
+  book: Book
+}
+
+type MomentActivity {
+  id: ID!
+  moment: Moment
+  book: Book
+}
+
+type AuthPayload {
+  token: String
+  email: String
+  languages: [String]
+  profile: Profile
+}
+
+type Query {
+  """Look up a book by its URL slug."""
+  bookBySlug(slug: String!): Book
+
+  """Look up a book by its ID."""
+  bookById(id: ID!): Book
+
+  """Look up a book by ISBN-10 or ISBN-13."""
+  bookByIsbn(isbn: String!): Book
+
+  """Get a random book."""
+  bookByRandom: Book
+
+  """Look up multiple books by their slugs."""
+  booksBySlugs(slugs: [String!]!): [Book!]!
+
+  """Get all editions of a book."""
+  getEditionsByBookId(
+    bookId: ID!
+    languages: [String]
+    audiobook: Boolean
+    limit: Int
+    offset: Int
+  ): [Book!]!
+
+  """Get all books in your library. Requires authentication."""
+  myBooks(
+    limit: Int
+    offset: Int
+    sortBy: BookSorting
+    sortDirection: SortDirection
+    search: String
+  ): [Book!]!
+
+  """Get your books filtered by reading status. Requires authentication."""
+  myBooksByReadingState(
+    limit: Int
+    offset: Int
+    readingStatus: ReadingStatus!
+    sortBy: BookSorting
+    sortDirection: SortDirection
+  ): [Book!]!
+
+  """Get any user's books by reading status."""
+  booksByReadingStateAndProfile(
+    profileId: ID!
+    readingStatus: ReadingStatus!
+    limit: Int
+    offset: Int
+  ): [Book!]!
+
+  """Get books on a shelf."""
+  booksByShelf(
+    shelfSlug: String!
+    limit: Int
+    offset: Int
+    sortBy: BookSorting
+    sortDirection: SortDirection
+  ): [Book!]!
+
+  """Search for books by title or author name."""
+  searchBookV2(query: String!): [Book!]!
+
+  """Search for user profiles."""
+  searchProfiles(query: String!): [Profile!]!
+
+  """Search for book clubs."""
+  searchClubs(query: String!): [Club!]!
+
+  """Search for shelves."""
+  searchShelves(query: String!): [Shelf!]!
+
+  """Get all your reading states. Requires authentication."""
+  myReadingStates: [ReadingState!]!
+
+  """Get reading progress for specific books."""
+  readingProgresses(bookIds: [ID!]!, active: Boolean): [ReadingProgress!]!
+
+  """Get a specific user's review for a book."""
+  review(bookId: ID!, profileId: ID!): Review
+
+  """Get all reviews by a user."""
+  getUserReviews(
+    profileId: ID!
+    limit: Int
+    offset: Int
+  ): [BookReviewActivity]
+
+  """Get a highlight by ID."""
+  momentById(id: ID!): Moment
+
+  """Get your highlights. Requires authentication."""
+  myMoments(limit: Int, offset: Int): [MomentActivity]
+
+  """Get a shelf by its URL slug."""
+  getShelfBySlug(slug: String!): Shelf
+
+  """Get all shelves for a user."""
+  getShelvesByProfileId(
+    profileId: ID!
+    limit: Int
+    offset: Int
+  ): [Shelf!]!
+
+  """Get the current authenticated user's profile. Requires authentication."""
+  me: Me
+
+  """Look up a user by handle."""
+  profileByHandle(handle: String!): Profile
+
+  """Look up a user by ID."""
+  profileById(id: ID!): Profile
+
+  """Look up an author by URL slug."""
+  authorBySlug(slug: String!): Author
+
+  """Get all books by an author."""
+  booksByAuthor(
+    authorId: ID!
+    limit: Int
+    offset: Int
+  ): [Book!]!
+
+  """Look up a club by its handle."""
+  clubByHandle(handle: String!): Club
+
+  """Get the list of featured clubs."""
+  getFeaturedClubs: [Club!]!
+
+  """Get all clubs a user is a member of."""
+  getClubsByProfileId(
+    profileId: ID!
+    limit: Int
+    offset: Int
+  ): [Club!]!
+
+  """Look up a goal by its slug."""
+  goalBySlug(slug: String!): Goal
+
+  """Get the aggregated activity feed for a user."""
+  aggregatedFeed(
+    profileId: ID!
+    limit: Int
+    offset: Int
+  ): [AggregatedActivity!]!
+}
+
+type Mutation {
+  """Authenticate with email and password. Returns a JWT token."""
+  login(email: String!, password: String!): AuthPayload
+
+  """Create a new account. Returns a JWT token."""
+  register(
+    email: String!
+    password: String!
+    name: String!
+    handle: String!
+    languages: [String!]!
+  ): AuthPayload
+
+  """Add a new book to the catalog. Requires authentication."""
+  createBook(
+    title: String!
+    description: String
+    authors: String
+    language: String
+    isbn13: String
+    cover: String
+    pageCount: String
+    publishedDate: String
+    publisher: String
+    physicalFormat: String
+  ): String
+
+  """Update your reading status for a book. Requires authentication."""
+  updateReadingState(
+    bookId: ID!
+    readingStatus: ReadingStatus!
+  ): ReadingState
+
+  """Track your reading progress within a book. Requires authentication."""
+  updateReadingProgress(
+    bookId: ID!
+    progress: Int!
+    capacity: Int!
+    unit: ProgressUnit!
+  ): ReadingProgress
+
+  """Write a review for a book. Requires authentication."""
+  createReview(
+    bookId: ID!
+    rating: Float
+    text: String
+    spoiler: Boolean
+    tags: [String]
+  ): Review
+
+  """Update an existing review. Requires authentication."""
+  updateReview(
+    id: ID!
+    rating: Float
+    text: String
+    spoiler: Boolean
+    tags: [String]
+  ): Review
+
+  """Delete a review. Requires authentication."""
+  deleteReview(reviewId: ID!): Boolean
+
+  """Create a new highlight. Requires authentication."""
+  createMoment(
+    bookId: ID!
+    quote: String
+    note: String
+    where: String
+    spoiler: Boolean
+  ): Moment
+
+  """Update an existing highlight. Requires authentication."""
+  updateMoment(
+    momentId: ID!
+    bookId: ID!
+    quote: String
+    note: String
+    where: String
+    spoiler: Boolean
+  ): Moment
+
+  """Delete a highlight. Requires authentication."""
+  deleteMoment(momentId: ID!): Boolean
+
+  """Create a new shelf. Requires authentication."""
+  createShelf(
+    title: String!
+    description: String
+  ): Shelf
+
+  """Add a book to a shelf. Requires authentication."""
+  addBookToShelf(
+    bookId: ID!
+    shelfId: ID!
+  ): Book
+
+  """Remove a book from a shelf. Requires authentication."""
+  removeBookFromShelf(
+    bookId: ID!
+    shelfId: ID!
+  ): Book
+
+  """Update your profile. Requires authentication."""
+  updateMe(
+    handle: String
+    name: String
+    bio: String
+    languages: [String]
+  ): Me
+
+  """Follow a user. Requires authentication."""
+  followProfile(followingProfileId: ID!): Boolean
+
+  """Unfollow a user. Requires authentication."""
+  unfollowProfile(followingProfileId: ID!): Boolean
+
+  """Create a reading goal. Requires authentication."""
+  createGoal(
+    name: String!
+    target: Int!
+    startDate: String!
+    endDate: String!
+    autoUpdate: Boolean
+  ): GoalEnrollment
+
+  """Like a review, highlight, club post, or comment. Requires authentication."""
+  likeTarget(
+    targetId: ID!
+    targetType: ReactionTarget!
+  ): LikeResult
+
+  """Add a comment to a review, highlight, or club post. Requires authentication."""
+  addComment(
+    targetId: ID!
+    targetType: ReactionTarget!
+    text: String!
+  ): Comment
+}
