@@ -4,7 +4,7 @@ description: Literal is a modern social reading and book tracking platform that 
   a GraphQL API for managing reading lists, reviews, shelves, reading goals, highlights,
   and book recommendations. The API enables developers to access user libraries, reading
   states, book data, author information, and social reading clubs.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -29,7 +29,7 @@ apis:
     states, shelves, reviews, highlights, reading goals, clubs, and user profiles.
     Supports both public read operations and authenticated write operations via JWT
     bearer tokens.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://literal.club/developers
   baseURL: https://literal.club/graphql/
   tags:
