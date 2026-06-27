@@ -57,15 +57,15 @@ apis:
   - FN: Literal Support
     email: support@literal.club
 common:
-- type: Sign Up
+- type: Signup
   url: https://literal.club/
 - type: Developer Community
   url: https://literal.club/clubs/dev
 - type: Support
   url: mailto:support@literal.club
-- type: Terms of Service
+- type: TermsOfService
   url: https://literal.club/pages/terms
-- type: Privacy Policy
+- type: PrivacyPolicy
   url: https://literal.club/pages/privacy
 maintainers:
 - FN: Kin Lane
