@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: literal.club
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 19 21:14:41 2026 GMT
+  hsts: false
+domains:
+- domain: literal.club
+  dnssec: false
+  caa:
+  - 0 issuewild "ssl.com"
+  - 0 issue "comodoca.com"
+  - 0 issue "digicert.com; cansignhttpexchanges=yes"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog; cansignhttpexchanges=yes"
+  - 0 issue "ssl.com"
+  spf: true
+  dmarc: false

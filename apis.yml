@@ -57,6 +57,8 @@ apis:
   - FN: Literal Support
     email: support@literal.club
 common:
+- type: DomainSecurity
+  url: security/literal-domain-security.yml
 - type: Signup
   url: https://literal.club/
 - type: Developer Community
