@@ -4,6 +4,17 @@ description: Literal is a modern social reading and book tracking platform that 
   a GraphQL API for managing reading lists, reviews, shelves, reading goals, highlights,
   and book recommendations. The API enables developers to access user libraries, reading
   states, book data, author information, and social reading clubs.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
