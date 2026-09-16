@@ -1,9 +1,9 @@
 aid: literal
 name: Literal Club
-description: Literal is a modern social reading and book tracking platform that provides
-  a GraphQL API for managing reading lists, reviews, shelves, reading goals, highlights,
-  and book recommendations. The API enables developers to access user libraries, reading
-  states, book data, author information, and social reading clubs.
+description: Literal is a modern social reading and book tracking platform that provides a GraphQL API
+  for managing reading lists, reviews, shelves, reading goals, highlights, and book recommendations. The
+  API enables developers to access user libraries, reading states, book data, author information, and
+  social reading clubs.
 deliveryModel:
   model: saas
   open_source: false
@@ -30,7 +30,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/literal.png
 url: https://raw.githubusercontent.com/api-evangelist/literal/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
 - Books
@@ -61,10 +61,9 @@ tags_raw:
 apis:
 - aid: literal:literal-graphql-api
   name: Literal GraphQL API
-  description: GraphQL API for Literal Club that provides access to book data, reading
-    states, shelves, reviews, highlights, reading goals, clubs, and user profiles.
-    Supports both public read operations and authenticated write operations via JWT
-    bearer tokens.
+  description: GraphQL API for Literal Club that provides access to book data, reading states, shelves,
+    reviews, highlights, reading goals, clubs, and user profiles. Supports both public read operations
+    and authenticated write operations via JWT bearer tokens.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://literal.club/developers
   baseURL: https://literal.club/graphql/
@@ -93,6 +92,8 @@ apis:
   - FN: Literal Support
     email: support@literal.club
 common:
+- type: Website
+  url: https://literal.club
 - type: DomainSecurity
   url: security/literal-domain-security.yml
 - type: Signup
