@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 plans:
   - name: Free
     description: Literal Club API access is free and open to all registered users. There are no paid API tiers documented. Access is granted via a JWT token obtained through the login mutation, valid for 6 months. Developers are asked to be respectful with request volume and to contact support for bulk data access needs.

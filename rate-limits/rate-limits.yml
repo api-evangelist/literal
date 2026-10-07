@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 rateLimits:
   - name: General API Rate Limit
     description: Literal Club does not publicly document specific numeric rate limits. The documentation asks developers to be respectful with request volume. For bulk data access needs, developers are instructed to contact support@literal.club directly.
