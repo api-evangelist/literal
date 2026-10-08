@@ -34,3 +34,15 @@ plans:
         description: Create/update books, reviews, highlights (moments), shelves, profiles, goals, reading states, reading progress, comments, follows; delete reviews and highlights
       - name: Authentication
         description: JWT bearer token via login or register mutation; tokens valid for 6 months
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
