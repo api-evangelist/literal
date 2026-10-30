@@ -64,38 +64,115 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Literal is a modern social reading and book tracking platform with a GraphQL API that allows developers to manage and access reading lists, shelves, reviews, highlights, reading goals, book recommendations, and social reading clubs.
+Literal is a modern social reading and book tracking platform that provides a GraphQL API for managing reading lists, reviews, shelves, reading goals, highlights, and book recommendations. The API enables developers to access user libraries, reading states, book data, author information, and social reading clubs.
 
-## API
+**Areas:** Books · Reading · Social · GraphQL · Book Tracking · Reading Lists · Shelves · Reviews · Highlights · Reading Goals · Book Clubs · Recommendations
 
-- **Type:** GraphQL
-- **Endpoint:** `https://literal.club/graphql/`
-- **Method:** POST with JSON body containing `query` and optional `variables`
-- **Authentication:** JWT bearer token via `Authorization: Bearer <token>` header
+## Literal Club on APIs.io
 
-## Developer Resources
+Everything profiled for Literal Club is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/literal/](https://apis.io/providers/literal/)** — or go straight to one of the APIs or properties below.
 
-- [API Documentation](https://literal.club/developers)
-- [Developer Community Club](https://literal.club/clubs/dev)
-- [Support](mailto:support@literal.club)
+### APIs (1)
 
-## Key Capabilities
+- [Literal GraphQL API](https://apis.io/apis/literal/literal-graphql-api/) — GraphQL API for Literal Club that provides access to book data, reading states, shelves, reviews, highlights, reading goals, clubs, and user profiles.…
 
-- Book lookups by slug, ID, ISBN, or search
-- Reading state management (want to read, currently reading, finished)
-- Custom shelves and reading lists
-- Reviews and ratings
-- Highlights and notes (moments)
-- Reading goals and progress tracking
-- Social features: follow users, join clubs
-- Author and edition information
+### Published properties
 
-## Authentication
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Obtain a JWT token using the `login` mutation with email and password credentials. Tokens are valid for 6 months. Pass the token as an `Authorization: Bearer <token>` header on subsequent requests.
+#### GraphQL (1)
 
-## Links
+GraphQL schemas.
 
-- Homepage: https://literal.club
-- API Docs: https://literal.club/developers
-- Support: support@literal.club
+- [Literal GraphQL API](https://apis.io/graphqls/literal/literal-graphql/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Literal Context](https://apis.io/jsonld/literal/literal-context/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Literal Domain Security](https://apis.io/security/literal/literal-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/literal/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/literal/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/literal/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://literal.club)
+- [Terms of service](https://literal.club/pages/terms)
+- [Privacy policy](https://literal.club/pages/privacy)
+
+## API Evangelist rating
+
+**Kin Score 32.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 39.5 |
+
+**Agent readiness 18.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/literal/](https://apis.io/providers/literal/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Literal Club: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/literal/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
